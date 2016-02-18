@@ -1,0 +1,18 @@
+<CATALOG>
+<CD>
+	<Currency>USD</Currency>
+	<Symbol>$</Symbol>
+</CD>
+<CD>
+	<Currency>CAD</Currency>
+	<Symbol>CA$</Symbol>
+</CD>
+<CD>
+	<Currency>EUR</Currency>
+	<Symbol>€</Symbol>
+</CD>
+<CD>
+	<Currency>AED</Currency>
+	<Symbol>AED</Symbol>
+</CD>
+</CATALOG>
