@@ -3,20 +3,6 @@ a{
 	text-decoration: none;
 }
 
-.dropdownlist{
-	display: none;
-	margin: 0;
-	padding: 10px 0;
+ul{
 	list-style: none;
-	width: 200px;
-}
-.dropdownlist.displayed{
-	display: block;
-}
-
-.dropdownlist li a{
-	padding: 5px 20px;
-}
-.dropdownlist li{
-	margin-top: 10px;
 }
