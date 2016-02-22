@@ -1,22 +1,24 @@
-function loadCurrency(){
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function(){
-		if(xhttp.readyState == 4 && xhttp.status == 200){
-			myFunction(xhttp);
+$(document).ready(function (){
+	$.ajax({
+		url: "https://gist.githubusercontent.com/Fluidbyte/2973986/raw/b0d1722b04b0a737aade2ce6e055263625a0b435/Common-Currency.json"
+	})
+	.done(function( jsonData ) {
+		var currencies = JSON.parse(jsonData);
+
+		for(var currencyKey in currencies){
+			var symbol = currencies[currencyKey].symbol;
+			var currencyElement = "<li><a href='#'>" + currencyKey + ' - ' + symbol + '</a></li>';
+			$(currencyElement).appendTo($('#ddl'));
 		}
-	};
-	xhttp.open("GET", "dataXML.xml", true);
-	xhttp.send();
-}
-function myFunction(xml){
-	var i;
-	var xmlDoc = xml.responseXML;
-	var p = "";
-	var x = xmlDoc.getElementsByTagName("CD");
-	for(i = 0; i < x.length; i++){
-		p += x[i].getElementsByTagName("Currency")[0].childNodes[0].nodeValue + 
-		" &ndash; " + 
-		x[i].getElementsByTagName("Symbol")[0].childNodes[0].nodeValue + "<br />";
-	}
-	document.getElementById("currency").innerHTML = p;
-}
+	});
+ 
+	var isDisplay = true;
+	$("#ddlButton").on("click", function(){
+  	if(isDisplay){
+    	$("#ddl").addClass("displayed");
+    } else{
+    	$("#ddl").removeClass("displayed");
+    }
+    isDisplay =! isDisplay;
+  });
+});
